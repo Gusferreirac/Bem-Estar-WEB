@@ -33,14 +33,14 @@ const Nav = (props: NavType) => {
                 name ? ( // Verifique se 'name' está definido (usuário logado)
                     <div className="flex">
                         {!props.isHome? 
-                            <Button className="bg-white mr-4 ml-8 text-green-600 rounded-full hover:bg-transparent hover:text-white border-white border-2"><a href="/home">Acessar Bem-Estar</a></Button>
+                            <a href="/home"><Button className="bg-white mr-4 ml-8 text-green-600 rounded-full hover:bg-transparent hover:text-white border-white border-2">Acessar Bem-Estar</Button></a>
                         : null}  
                         <Profile name={name}/>
                     </div>
                 ) : (
                     <div className="ml-8">
-                    <Button variant="ghost" className="mr-2 rounded-full hover:text-green-600"><a href="/entrar">Login</a></Button>
-                    <Button className="bg-white text-green-600 rounded-full hover:bg-transparent hover:text-white border-white border-2"><a href="/cadastro">Cadastro</a></Button>
+                    <a href="/entrar"><Button variant="ghost" className="mr-2 rounded-full hover:text-green-600">Login</Button></a>
+                    <a href="/cadastro"><Button className="bg-white text-green-600 rounded-full hover:bg-transparent hover:text-white border-white border-2">Cadastro</Button></a>
                     </div>
                 )
             : null }
