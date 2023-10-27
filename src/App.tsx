@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-     <Router basename='app/'>
+     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/cadastro" element={<Register />} />
