@@ -34,7 +34,7 @@ const StarRating = ({ onRatingChange }: StarRatingProps) => {
         <style>
             {css}
         </style>
-        {[...Array(5)].map((star, index) => {
+        {[...Array(5)].map((index) => {
           index += 1;
           return (
             <button
