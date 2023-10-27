@@ -5,6 +5,8 @@ import Cookies from "js-cookie";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
+import {Buffer} from 'buffer';
+
 
 const SignUpForm = () => {
     const [name, setFullName] = useState("");
@@ -43,10 +45,13 @@ const SignUpForm = () => {
             password: decodedResponse.sub,
         };
 
+        const token = Buffer.from(`${userData.email}:${userData.password}`, 'utf-8').toString('base64');
+
         try {
             const response = await api.post('/register', userData, {
                 headers: {
-                    'Content-Type': 'application/json' // Define o cabeçalho Content-Type como application/json
+                    'Content-Type': 'application/json', // Define o cabeçalho Content-Type como application/json
+                    'Authorization': `Bearer ${token}`
                 }
             });            
 
