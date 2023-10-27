@@ -9,15 +9,4 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  build: {
-    rollupOptions: {
-      external: ["react", "react-router-dom"],
-      output: {
-        globals: {
-          react: "React",
-        },
-      },
-    },
-    assetsDir: "src/assets",
-  },
 })
