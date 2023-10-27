@@ -34,7 +34,7 @@ const StarRating = ({ onRatingChange }: StarRatingProps) => {
         <style>
             {css}
         </style>
-        {[...Array(5)].map((index) => {
+        {[...Array(5)].map((star, index) => {
           index += 1;
           return (
             <button
@@ -45,12 +45,12 @@ const StarRating = ({ onRatingChange }: StarRatingProps) => {
             onMouseEnter={() => setHover(index)}
             onMouseLeave={() => setHover(rating)}
             >
-            <span><Star/></span>
+            <span id={star}><Star/></span>
             </button>
           );
         })}
       </div>
     );
   };
-  
+
  export default StarRating;  

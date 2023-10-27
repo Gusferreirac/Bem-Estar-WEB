@@ -84,7 +84,7 @@ const HumorForm: React.FC<HumorFormProps> = ({ onClose }) => {
             </div>
             <div className="mb-4">
                 <Button type="submit" className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
-                    Cadastrar alimentação
+                    Cadastrar humor
                 </Button>
             </div>
         

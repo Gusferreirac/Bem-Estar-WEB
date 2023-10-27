@@ -12,8 +12,6 @@ export const WakeFeeling = ({ onFeelingChange }: WakeFeelingProps) => {
     const [value, setValue] = useState("normal");
 
     const handleValueChange = (newValue: string) => {
-        console.log(value);
-        
         setValue(newValue);
         onFeelingChange(newValue);
     };
