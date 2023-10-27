@@ -42,6 +42,9 @@ const SignInForm = () => {
             password: decodedResponse.sub,
         };
 
+        console.log(userData);
+        
+
         const token = Buffer.from(`${userData.email}:${userData.password}`, 'utf-8').toString('base64');
 
         try {
