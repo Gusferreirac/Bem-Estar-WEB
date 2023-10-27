@@ -21,7 +21,7 @@ const Nav = (props: NavType) => {
 
     return(
         <>
-        <div className="hidden md:flex grid grid-cols-2 gap-4">
+        <div className="hidden md:flex grid grid-cols-2 gap-4 relative overflow-hidden">
             {!props.isHome ? 
                 <div className="grid grid-cols-3 gap-4 underline mt-auto mb-auto">
                     <a href="\historia" className="hover:text-green-200">História</a>
