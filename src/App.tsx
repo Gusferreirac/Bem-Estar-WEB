@@ -12,11 +12,11 @@ function App() {
 
   return (
     <>
-     <Router>
+     <Router basename='app/'>
       <Routes>
+        <Route path="/" element={<LandingPage />} />
         <Route path="/cadastro" element={<Register />} />
         <Route path="/entrar" element={<LogIn />} />
-        <Route path="/" element={<LandingPage />} />
         <Route path="/home" element={<Home />} />
         <Route path="/terminar_cadastro" element={<FinishRegister/>} />
         <Route path="/historia" element={<HistoryPage/>} />
