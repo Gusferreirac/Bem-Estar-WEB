@@ -23,7 +23,7 @@ const Hero = () => {
             }
             
             <div>
-                <img src="src/assets/old_man.svg" className="max-w-full m-auto" alt="Hero" />
+                <img src={require("src/assets/old_man.svg")} className="max-w-full m-auto" alt="Hero" />
             </div>
         </div>
     );
