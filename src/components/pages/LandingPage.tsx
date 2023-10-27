@@ -10,7 +10,7 @@ const LandingPage = () => {
     return(
         <main className='min-h-screen'>
           <div className='relative overflow-hidden'>
-            <img className='absolute z-0 w-3/4 right-0' src="src/assets/backgrounds/bg_top.svg" alt="" />
+            <img className='absolute z-0 w-3/4 right-0' src="https://res.cloudinary.com/dbqgpezvw/image/upload/v1698382220/bem-estar/assets/backgrounds/ko35qpnfziiexpmhfdll.svg" alt="" />
             <div className='z-10 relative'>
               <Navbar type="header" isHome={false}/> 
               <Hero/>

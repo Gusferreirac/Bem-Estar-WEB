@@ -23,7 +23,7 @@ const Hero = () => {
             }
             
             <div>
-                <img src="src/assets/old_man.svg" className="max-w-full m-auto" alt="Hero" />
+                <img src="https://res.cloudinary.com/dbqgpezvw/image/upload/v1698382046/bem-estar/assets/l4rzvxh9unh8dte1y2fv.svg" className="max-w-full m-auto" alt="Hero" />
             </div>
         </div>
     );
