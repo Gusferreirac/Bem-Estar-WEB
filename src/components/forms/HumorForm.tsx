@@ -12,6 +12,7 @@ interface HumorFormProps {
 const HumorForm: React.FC<HumorFormProps> = ({ onClose }) => {
     const [feeling, setFeelingName] = useState("");
     const [start, setStart] = useState("");
+    const [loading, setLoading] = useState(false);
     const id = getUser().sub
 
     const handleFeelingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,6 +35,7 @@ const HumorForm: React.FC<HumorFormProps> = ({ onClose }) => {
         
         
         try {
+            setLoading(true);
             const response = await api.post('/humor-register', userData, {
                 headers: {
                     'Content-Type': 'application/json' // Define o cabeçalho Content-Type como application/json
@@ -83,9 +85,15 @@ const HumorForm: React.FC<HumorFormProps> = ({ onClose }) => {
                 />
             </div>
             <div className="mb-4">
+                {!loading ?
                 <Button type="submit" className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
                     Cadastrar humor
                 </Button>
+                : loading ?
+                    <Button disabled type="submit" className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+                        Cadastrar humor
+                    </Button>
+                : null}
             </div>
         
         </form>

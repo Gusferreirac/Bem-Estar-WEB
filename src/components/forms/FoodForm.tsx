@@ -13,6 +13,7 @@ const FoodForm: React.FC<FoodFormProps> = ({ onClose }) => {
     const [description, setDescriptionName] = useState("");
     const [start, setStart] = useState("");
     const [photo, setPhoto] = useState<string | undefined>(undefined);
+    const [loading, setLoading] = useState(false);
     const id = getUser().sub
 
     const handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,6 +50,7 @@ const FoodForm: React.FC<FoodFormProps> = ({ onClose }) => {
         
         
         try {
+            setLoading(true);
             const response = await api.post('/food-register', userData, {
                 headers: {
                     'Content-Type': 'application/json' // Define o cabeçalho Content-Type como application/json
@@ -111,9 +113,15 @@ const FoodForm: React.FC<FoodFormProps> = ({ onClose }) => {
                 />
             </div>
             <div className="mb-4">
+                {!loading ?
                 <Button type="submit" className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
                     Cadastrar alimentação
                 </Button>
+                : loading ?
+                    <Button disabled type="submit" className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+                        Cadastrar alimentação
+                    </Button>
+                : null}
             </div>
         
         </form>

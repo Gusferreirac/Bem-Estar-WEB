@@ -14,6 +14,7 @@ const SleepForm: React.FC<SleepFormProps> = ({ onClose }) => {
     const [end, setEnd] = useState<string>("");
     const [feeling, setFeeling] = useState("normal");
     const [selectedStars, setSelectedStars] = useState(0);
+    const [loading, setLoading] = useState(false);
     const id = getUser().sub
 
     // Função de retorno para receber o número de estrelas selecionadas
@@ -46,6 +47,7 @@ const SleepForm: React.FC<SleepFormProps> = ({ onClose }) => {
         };
         
         try {
+            setLoading(true);
             const response = await api.post('/sleep-register', userData, {
                 headers: {
                     'Content-Type': 'application/json' // Define o cabeçalho Content-Type como application/json
@@ -104,9 +106,15 @@ const SleepForm: React.FC<SleepFormProps> = ({ onClose }) => {
             {/* TODO: Pegar dados star rating e wakefeeling */}
             <WakeFeeling onFeelingChange={handleFeelingChange}/>
             <div className="mb-4">
+            {!loading ?
                 <Button type="submit" className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
-                    Cadasrar sono
+                    Cadastrar sono
                 </Button>
+                : loading ?
+                    <Button disabled type="submit" className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+                        Cadastrar sono
+                    </Button>
+                : null}
             </div>
         
         </form>

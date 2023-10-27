@@ -11,6 +11,7 @@ const ActivityForm: React.FC<ActivityFormProps> = ({ onClose })=> {
     const [activityName, setActivityName] = useState("");
     const [start, setStart] = useState("");
     const [end, setEnd] = useState("");
+    const [loading, setLoading] = useState(false);
     const id = getUser().sub
 
     const handleActivityNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,6 +37,7 @@ const ActivityForm: React.FC<ActivityFormProps> = ({ onClose })=> {
         };
        
         try {
+            setLoading(true);
             const response = await api.post('/activity-register', userData, {
                 headers: {
                     'Content-Type': 'application/json' // Define o cabeçalho Content-Type como application/json
@@ -99,9 +101,15 @@ const ActivityForm: React.FC<ActivityFormProps> = ({ onClose })=> {
                 />
             </div>
             <div className="mb-4">
+                {!loading ?
                 <Button type="submit" className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
                     Cadastrar atividade
                 </Button>
+                : loading ?
+                    <Button disabled type="submit" className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+                        Cadastrar atividade
+                    </Button>
+                : null}
             </div>
         
         </form>
