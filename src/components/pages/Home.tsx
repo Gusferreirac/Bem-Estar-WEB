@@ -149,9 +149,8 @@ const Home = () => {
 
     return(
         <main className='min-h-screen'>
-        <div className='relative overflow-hidden'>
-          <img className='absolute z-0 w-3/4 right-0' src="src/assets/backgrounds/bg_top.svg" alt="" />
-          <div className='relative'>
+        <div>
+          <div>
             <Navbar type="header" isHome={true}/> 
           </div>
         </div>
@@ -172,6 +171,14 @@ const Home = () => {
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
+                style={{
+                    overlay: {
+                        zIndex: 999, // Defina um valor alto para o overlay do modal
+                    },
+                    content: {
+                        zIndex: 1000, // Defina um valor ainda mais alto para o conteúdo do modal
+                    }
+                }}
             >
                 <h1 className="text-2xl font-bold text-center mb-8">{title}</h1>
                 <a onClick={closeModal} className="right-0 top-0 m-8 absolute hover:cursor-pointer hover:text-green-600"><X/></a>

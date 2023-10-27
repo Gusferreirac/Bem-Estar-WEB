@@ -17,7 +17,7 @@ const Navbar = (props: NavType) => {
                 <h1 className="font-bold text-green-600 text-2xl">Bem-Estar</h1>
             </a>
             {page != '/' ?
-                <img className='absolute w-2/3 right-0 z-0' src="https://res.cloudinary.com/dbqgpezvw/image/upload/v1698382220/bem-estar/assets/backgrounds/ko35qpnfziiexpmhfdll.svg" alt="" />
+                <img className='absolute w-2/3 right-0' src="https://res.cloudinary.com/dbqgpezvw/image/upload/v1698382220/bem-estar/assets/backgrounds/ko35qpnfziiexpmhfdll.svg" alt="" />
             : null}
             <Nav type={props.type} isHome={props.isHome}/>
             
